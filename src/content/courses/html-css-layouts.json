@@ -1,0 +1,12 @@
+{
+  "slug": "html-css-layouts",
+  "title": "HTML, CSS & Layouts",
+  "subtitle": "Fundamentos del desarrollo web moderno",
+  "description": "Domina HTML semántico, CSS desde selectores hasta positioning, y construye layouts profesionales con Flexbox y CSS Grid.",
+  "duration": "6 semanas · 18 sesiones · 18 horas",
+  "level": "Personas con algo de experiencia",
+  "mascotImage": "cat-laptop",
+  "accentColor": "#C3FB34",
+  "sections": 4,
+  "lessons": 64
+}

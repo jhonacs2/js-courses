@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --verde-limon: #C3FB34;
+  --azul-gatuno: #4142F5;
+
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F8FA;
+  --bg-tertiary: #F0F0F5;
+  --bg-accent-soft: #EDEFFF;
+  --bg-lime-soft: #F2FFC8;
+
+  --text-primary: #111118;
+  --text-secondary: #555566;
+  --text-muted: #8A8A9A;
+
+  --border: #E2E2EA;
+  --border-hover: #C8C8D4;
+
+  --color-welcome: #22c55e;
+  --color-html: #ef6b3b;
+  --color-css: #3b82f6;
+  --color-layouts: #a855f7;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  --sidebar-width: 280px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* MDX Prose */
+.prose {
+  color: var(--text-primary);
+  max-width: 72ch;
+  line-height: 1.75;
+}
+
+.prose h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.prose h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p { margin-bottom: 1rem; }
+
+.prose ul, .prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li { margin-bottom: 0.25rem; }
+
+.prose a {
+  color: var(--azul-gatuno);
+  text-decoration: underline;
+}
+
+.prose a:hover { opacity: 0.8; }
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--bg-tertiary);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+}
+
+.prose pre {
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.875rem;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--verde-limon);
+  background-color: var(--bg-lime-soft);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
+.prose blockquote p { margin-bottom: 0; }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.prose th {
+  background-color: var(--bg-secondary);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+.prose td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+}
+
+.prose tr:nth-child(even) td { background-color: var(--bg-secondary); }
+
+.astro-code {
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
