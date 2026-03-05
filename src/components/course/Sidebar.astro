@@ -55,7 +55,9 @@ const typeIcons: Record<string, string> = {
         {courseTitle}
       </p>
     </a>
-
+    <button class="md:hidden absolute top-4 right-4 cursor-pointer color: var(--azul-gatuno) " onclick="closeSidebar()" style="font-size: 1.2rem;">
+      ✕
+    </button>
     <div class="mt-2">
       <div class="flex items-center justify-between mb-1">
         <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-heading);">Tu progreso</span>
@@ -69,74 +71,74 @@ const typeIcons: Record<string, string> = {
 
   <nav class="flex-1 overflow-y-auto py-2">
     {sections.map((section) => {
-      const isCurrentSection = section.slug === currentSection;
-      return (
-        <div class="mb-1">
-          <button
-            class="w-full text-left px-4 py-2.5 flex items-center gap-2 cursor-pointer border-none bg-transparent"
-            style={`font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: ${section.color};`}
-            onclick={`toggleSection('${section.slug}')`}
-          >
+        const isCurrentSection = section.slug === currentSection;
+        return (
+          <div class="mb-1">
+            <button
+              class="w-full text-left px-4 py-2.5 flex items-center gap-2 cursor-pointer border-none bg-transparent"
+              style={`font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: ${section.color};`}
+              onclick={`toggleSection('${section.slug}')`}
+            >
             <span class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs"
               style={`background: ${section.color}; font-family: var(--font-heading);`}>
-              {section.order}
-            </span>
-            <span class="flex-1">{section.title}</span>
+                {section.order}
+              </span>
+              <span class="flex-1">{section.title}</span>
             <span id={`arrow-${section.slug}`} class="transition-transform duration-200" style={isCurrentSection ? 'transform: rotate(90deg)' : ''}>›</span>
-          </button>
+            </button>
 
-          <ul
-            id={`section-${section.slug}`}
-            class="list-none m-0 pl-0 overflow-hidden transition-all duration-300"
+            <ul
+              id={`section-${section.slug}`}
+              class="list-none m-0 pl-0 overflow-hidden transition-all duration-300"
             style={isCurrentSection ? 'max-height: 2000px;' : 'max-height: 0;'}
-          >
-            {section.lessons.map((lesson) => {
+            >
+              {section.lessons.map((lesson) => {
               const isActive = section.slug === currentSection && lesson.slug === currentLesson;
-              return (
-                <li>
-                  <a
-                    href={`/${courseSlug}/${section.slug}/${lesson.slug}`}
-                    class="flex items-start gap-2 px-4 py-2 no-underline transition-colors duration-150"
+                return (
+                  <li>
+                    <a
+                      href={`/${courseSlug}/${section.slug}/${lesson.slug}`}
+                      class="flex items-start gap-2 px-4 py-2 no-underline transition-colors duration-150"
                     style={isActive
                       ? 'background: var(--bg-accent-soft); border-left: 3px solid var(--azul-gatuno);'
                       : 'border-left: 3px solid transparent;'}
                     onmouseover={!isActive ? "this.style.background='var(--bg-tertiary)'" : ''}
                     onmouseout={!isActive ? "this.style.background=''" : ''}
-                  >
-                    <span
-                      class="lesson-indicator flex-shrink-0 mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center text-xs"
-                      data-lesson={`${section.slug}/${lesson.slug}`}
+                    >
+                      <span
+                        class="lesson-indicator flex-shrink-0 mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center text-xs"
+                        data-lesson={`${section.slug}/${lesson.slug}`}
                       style={isActive
                         ? 'border-color: var(--azul-gatuno); background: var(--azul-gatuno); color: white;'
                         : 'border-color: var(--border);'}
-                    >
+                      >
                       {isActive ? '›' : ''}
-                    </span>
+                      </span>
 
-                    <div class="flex-1 min-w-0">
+                      <div class="flex-1 min-w-0">
                       <p class="m-0 leading-tight truncate"
                         style={`font-size: 0.8125rem; color: ${isActive ? 'var(--azul-gatuno)' : 'var(--text-secondary)'}; font-weight: ${isActive ? '600' : '400'}; font-family: var(--font-body);`}>
                         {typeIcons[lesson.type] || '📖'} {lesson.title}
-                      </p>
+                        </p>
                       <p class="m-0" style="font-size: 0.6875rem; color: var(--text-muted); font-family: var(--font-heading);">
-                        {lesson.duration}
-                      </p>
-                    </div>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      );
+                          {lesson.duration}
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        );
     })}
   </nav>
 </aside>
 
 <button
   id="sidebar-toggle"
-  class="fixed bottom-6 left-6 z-50 md:hidden w-12 h-12 rounded-full shadow-lg flex items-center justify-center"
-  style="background: var(--azul-gatuno); color: white; border: none; cursor: pointer; font-size: 1.25rem;"
+  class="fixed top-2 md:top-0 left-2 z-50 md:hidden w-12 h-12 flex items-center justify-center"
+  style=" color:  var(--azul-gatuno); border: none; cursor: pointer; font-size: 1.25rem;"
   onclick="openSidebar()"
 >
   ☰
