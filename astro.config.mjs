@@ -3,9 +3,11 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 
+import expressiveCode from 'astro-expressive-code';
+
 export default defineConfig({
   output: 'static',
-  integrations: [mdx()],
+  integrations: [expressiveCode(), mdx()],
   vite: {
     plugins: [tailwindcss()]
   },
