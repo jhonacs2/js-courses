@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import CourseLayout from '../../layouts/CourseLayout.astro';
 import TableOfContents from '../../components/course/TableOfContents.astro';
+import Instructors from '../../components/course/Instructors.astro';
 import Footer from '../../components/global/Footer.astro';
 import { getCourseSections } from '../../lib/courses';
 
@@ -22,12 +23,12 @@ const sections = await getCourseSections(courseSlug!);
 const mascotSrc = `/images/mascot/${course.mascotImage}.png`;
 
 const schedule = [
-  { week: '1', content: 'Welcome + HTML básico (estructura, texto, links)' },
-  { week: '2', content: 'HTML completo + Intro CSS' },
-  { week: '3', content: 'CSS Selectors & Box Model' },
-  { week: '4', content: 'CSS Avanzado & Positioning' },
-  { week: '5', content: 'Floats & Flexbox' },
-  { week: '6', content: 'Flexbox completo & CSS Grid' },
+  { week: '1', content: 'Fundamentos HTML + Primeros Estilos', instructor: 'Jhona' },
+  { week: '2', content: 'CSS Intermedio & Box Model', instructor: 'Jhona' },
+  { week: '3', content: 'Flexbox Completo', instructor: 'Jhona' },
+  { week: '4', content: 'HTML Semántico & Posicionamiento', instructor: 'Arturo' },
+  { week: '5', content: 'CSS Grid', instructor: 'Arturo' },
+  { week: '6', content: 'Proyecto Final Integrador', instructor: 'Instructor C' },
 ];
 ---
 
@@ -57,7 +58,24 @@ const schedule = [
           {course.description}
         </p>
 
-        {sections.length > 0 && sections[0].lessons.length > 0 && (
+        {course.comingSoon ? (
+          <div class="flex items-center gap-3 flex-wrap">
+            <span
+              class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold"
+              style="background: var(--bg-tertiary); color: var(--text-muted); font-family: var(--font-heading); border: 1.5px dashed var(--border-hover);"
+            >
+              🔔 Próximamente
+            </span>
+            {course.startDate && (
+              <span
+                class="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold"
+                style="background: var(--bg-accent-soft); color: var(--azul-gatuno); font-family: var(--font-heading);"
+              >
+                📅 Inicio: {course.startDate}
+              </span>
+            )}
+          </div>
+        ) : sections.length > 0 && sections[0].lessons.length > 0 && (
           <a
             href={`/${courseSlug}/${sections[0].slug}/${sections[0].lessons[0].slug}`}
             style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--azul-gatuno); color: white; font-family: var(--font-heading); font-weight: 600; padding: 0.875rem 1.75rem; border-radius: 0.625rem; text-decoration: none; font-size: 0.9375rem;"
@@ -102,7 +120,10 @@ const schedule = [
                   style="background: var(--verde-limon); color: var(--text-primary); font-family: var(--font-heading);">
                   Sem. {item.week}
                 </span>
-                <span style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.4;">{item.content}</span>
+                <div>
+                  <span style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.4;">{item.content}</span>
+                  <span style="font-size: 0.6875rem; color: var(--text-muted); display: block; font-family: var(--font-heading);">— {item.instructor}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -131,6 +152,12 @@ const schedule = [
       </div>
     </div>
   </div>
+
+  {course.instructors && course.instructors.length > 0 && (
+    <div class="max-w-5xl mx-auto px-6">
+      <Instructors instructors={course.instructors} />
+    </div>
+  )}
 
   <Footer />
 </CourseLayout>

@@ -3,10 +3,35 @@
   "title": "HTML, CSS & Layouts",
   "subtitle": "Fundamentos del desarrollo web moderno",
   "description": "Domina HTML semántico, CSS desde selectores hasta positioning, y construye layouts profesionales con Flexbox y CSS Grid.",
-  "duration": "6 semanas · 18 sesiones · 18 horas",
-  "level": "Personas con algo de experiencia",
+  "duration": "6 semanas · 18 clases · 27 horas",
+  "level": "No se requiere experiencia previa",
   "mascotImage": "cat-laptop",
   "accentColor": "#C3FB34",
-  "sections": 4,
-  "lessons": 64
+  "sections": 6,
+  "lessons": 18,
+  "comingSoon": true,
+  "startDate": "Marzo 2026",
+  "instructors": [
+    {
+      "name": "Jhona",
+      "role": "Instructor",
+      "bio": "Desarrollador web con experiencia en frontend y educación tecnológica. Especialista en HTML, CSS y metodologías de enseñanza práctica. Apasionado por hacer accesible el desarrollo web.",
+      "image": "/images/instructors/jhona.webp",
+      "weeks": "Semanas 1, 2 y 3"
+    },
+    {
+      "name": "Arturo",
+      "role": "Instructor",
+      "bio": "Ingeniero frontend especializado en CSS avanzado, sistemas de diseño y arquitectura de layouts. Experto en Flexbox, CSS Grid y responsive design.",
+      "image": "/images/instructors/arturo.webp",
+      "weeks": "Semanas 4 y 5"
+    },
+    {
+      "name": "Instructor C",
+      "role": "Instructor",
+      "bio": "Desarrollador full-stack con enfoque en mentoría y revisión de código. Guía a los estudiantes en la integración de todos los conceptos en proyectos reales.",
+      "image": "/images/instructors/instructor-c.webp",
+      "weeks": "Semana 6"
+    }
+  ]
 }

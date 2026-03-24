@@ -13,6 +13,15 @@ const coursesCollection = defineCollection({
     accentColor: z.string(),
     sections: z.number(),
     lessons: z.number(),
+    comingSoon: z.boolean().optional(),
+    startDate: z.string().optional(),
+    instructors: z.array(z.object({
+      name: z.string(),
+      role: z.string(),
+      bio: z.string(),
+      image: z.string(),
+      weeks: z.string(),
+    })).optional(),
   }),
 });
 

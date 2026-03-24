@@ -1,0 +1,14 @@
+{
+  "slug": "github-fundamentos",
+  "title": "Git & GitHub",
+  "subtitle": "Control de versiones y colaboración",
+  "description": "Aprende Git desde cero, domina GitHub para colaborar en proyectos reales, y gestiona tu código como un profesional.",
+  "duration": "4 semanas · 12 clases · 18 horas",
+  "level": "No se requiere experiencia previa",
+  "mascotImage": "cat-coding",
+  "accentColor": "#4142F5",
+  "sections": 2,
+  "lessons": 6,
+  "comingSoon": true,
+  "startDate": "Marzo 2026"
+}
